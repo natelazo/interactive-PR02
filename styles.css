@@ -1,0 +1,25 @@
+h1 {
+  text-decoration: underline;
+}
+
+
+/* Selecting star size */
+.star {
+  width: 38px;
+  height: 38px;
+}
+
+/* Spins the star when you hover over the star or even the text */
+.benefits li:hover .star {
+  animation: spin 0.6s ease-in-out;
+}
+
+/* grabbing spin enables us to dictate what happens in the animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
