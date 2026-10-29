@@ -7,12 +7,13 @@
   <link
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
   rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <header>
     <a href="index.html">
-      <img src="images/halfday-logo.jpg" alt="Halfday logo">
+      <img src="images/halfday-logo.png" alt="Halfday logo">
     </a>
 
     <nav>
@@ -75,27 +76,31 @@
   <!-- POP-UP BACKGROUND (will let me dim the background) -->
   <div id="overlay"></div>
 
-  <!-- MODAL POP-UP -->
-  <div class="modal" id="discount-modal">
-    <button class="close-button" type="button"></button>
-    <div class="modal-content">
-      <img src="images/halfday-logo-pink.jpg" alt="Halfday logo">
+<!-- DISCOUNT MODAL -->
+<div class="modal" id="discount-modal">
 
-      <h2>Get 15% Off</h2>
+  <div class="modal-content">
+    <img src="images/modal-logo.png" alt="Halfday logo">
 
-      <p>
-        Sign up to be the first to know about discounts,
-        exclusive perks, and other cool Halfday updates!
-      </p>
+    <h2>Get 15% Off</h2>
 
-      <button class="discount-button" type="button">Get Your Discount</button>
-    </div>
+    <p>
+      Sign up to be the first to know about discounts,
+      exclusive perks, and other cool Halfday updates!
+    </p>
 
-    <div class="modal-image">
-      <img
-        src="images/discount-photo.jpg"
-        alt="Pouring Halfday">
-    </div>
-    </div>
+    <button class="discount-button" type="button">
+      Get Your Discount
+    </button>
+  </div>
+
+  <div class="modal-image">
+    <img
+      src="images/discount-photo.jpg"
+      alt="Pouring Halfday"
+    >
+  </div>
+
+</div>
 </body>
 </html>

@@ -1,29 +1,3 @@
-h1 {
-  text-decoration: underline;
-}
-
-
-/* Selecting star size */
-.star {
-  width: 38px;
-  height: 38px;
-}
-
-/* Spins the star when you hover over the star or even the text */
-.benefits li:hover .star {
-  animation: spin 0.6s ease-in-out;
-}
-
-/* grabbing spin enables us to dictate what happens in the animation */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -32,13 +6,10 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Inter", sans-serif;
-
-  background: linear-gradient(
-    to bottom,
-    #092c7f,
-    #2f60d4
-  );
+  background: linear-gradient(to bottom, #092c7f, #2f60d4);
 }
+
+/*HEADER AND NAV*/
 
 header {
   display: flex;
@@ -46,7 +17,6 @@ header {
   align-items: center;
   height: 145px;
   padding: 0 60px;
-
   background-color: #2152c5;
   border-radius: 0 0 35px 35px;
 }
@@ -68,73 +38,113 @@ nav a {
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
-  color: #ffff;
+  color: #ffffff;
 }
 
 .find-button {
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 271px;
   height: 65px;
-
+  border-radius: 43px;
   background-color: #ffe24c;
   color: #1342b0;
-  border-radius: 43px;
+  transition: transform 0.3s ease;
 }
 
+.find-button:hover {
+  transform: translateY(-5px);
+}
+
+/*HERO BACKGROUND*/
 
 .hero {
   position: relative;
   height: 879px;
   overflow: hidden;
+  background-image: url("images/line.png");
+  background-repeat: no-repeat;
+  background-size: 1440px auto;
+  background-position: left bottom;
 }
+
+/*HERO HEADLINE*/
 
 #hero-heading {
   margin: 0;
-
   font-family: Impact, sans-serif;
   font-size: 165px;
   font-weight: normal;
   line-height: 94%;
-
-  color: #ffe24c;
   text-transform: uppercase;
-  text-decoration: none;
+  color: #ffe24c;
+}
+
+.headline-one,
+.headline-two {
+  position: absolute;
+  white-space: nowrap;
+  transition: transform 0.5s ease;
 }
 
 .headline-one {
-  position: absolute;
   top: 147px;
   left: -28px;
-  white-space: nowrap;
+  animation: slide-left 1s ease-out;
 }
 
 .headline-two {
-  position: absolute;
   top: 307px;
   right: -33px;
-  white-space: nowrap;
+  animation: slide-right 1s ease-out;
 }
+
+.headline-one:hover {
+  transform: translateX(-34px);
+}
+
+.headline-two:hover {
+  transform: translateX(34px);
+}
+
+/*CANS*/
 
 .cans img {
   position: absolute;
   height: auto;
+  transition: transform 0.5s ease;
+  animation: slide-up 1s ease-out;
 }
 
 .can-tropical {
-  width: 521px;
   top: 177px;
   left: 330px;
   z-index: 3;
+  width: 521px;
 }
 
 .can-raspberry {
-  width: 547px;
   top: 466px;
   left: 541px;
   z-index: 2;
+  width: 547px;
+}
+
+.cans img:hover {
+  transform: translateY(60px);
+}
+
+/*ENEFITS AND DESCRIPTION*/
+
+.hero-details {
+  position: absolute;
+  left: 60px;
+  bottom: 101px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 340px;
 }
 
 .benefits {
@@ -143,40 +153,17 @@ nav a {
   list-style: none;
 }
 
-.hero-details p {
-  margin: 0;
-
-  font-family: "SF Pro Rounded", sans-serif;
-  font-size: 30px;
-  font-weight: normal;
-  line-height: 94%;
-  color: #ffffff;
-}
-
 .benefits li {
   display: flex;
   align-items: center;
   gap: 17px;
-
   width: fit-content;
-
   font-family: Impact, sans-serif;
   font-size: 45px;
   font-weight: normal;
   line-height: 120%;
+
   color: #ffffff;
-}
-
-.hero-details {
-  position: absolute;
-  left: 60px;
-  bottom: 101px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  width: 340px;
 }
 
 .star {
@@ -184,6 +171,21 @@ nav a {
   height: 39px;
   flex-shrink: 0;
 }
+
+.benefits li:hover .star {
+  animation: spin 0.6s ease-in-out;
+}
+
+.hero-details p {
+  margin: 0;
+  font-family: "SF Pro Rounded", sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 94%;
+  color: #ffffff;
+}
+
+/*HERO BUTTONS*/
 
 .hero-buttons {
   position: absolute;
@@ -204,8 +206,8 @@ nav a {
   font-weight: bold;
   text-transform: uppercase;
   color: #1342b0;
-
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .explore-button {
@@ -216,34 +218,143 @@ nav a {
   background-color: #52f1cb;
 }
 
-.headline-one,.headline-two {
-  transition: transform 0.5s ease;
+.hero-buttons button:hover {
+  transform: translateY(-5px);
 }
 
-.headline-one:hover {
-  transform: translateX(-34px);
+/*MODAL OVERLAY*/
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.headline-two:hover {
-  transform: translateX(34px);
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-.cans img {
-  transition: transform 0.5s ease;
+/*MODAL CONTAINER*/
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  display: flex;
+  width: 948px;
+  height: 580px;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.cans img:hover {
-  transform: translateY(60px);
+.modal.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-.headline-one {
-  animation: slide-left 1s ease-out;
+/*MODAL LEFT PANEL*/
+
+.modal-content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 441px;
+  height: 580px;
+  flex-shrink: 0;
+  background-color: #ffe24c;
+  text-align: center;
 }
 
-.headline-two {
-  animation: slide-right 1s ease-out;
+.modal-content img {
+  position: absolute;
+  top: 86px;
+  left: 50%;
+  width: 86px;
+  height: 78px;
+  object-fit: contain;
+  transform: translateX(-50%);
 }
 
+.modal-content h2 {
+  position: absolute;
+  top: 213px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  font-family: "Sidewalk Surf", sans-serif;
+  font-size: 60px;
+  font-weight: normal;
+  line-height: 56px;
+  text-align: center;
+  color: #d51570;
+}
+
+.modal-content p {
+  position: absolute;
+  top: 291px;
+  left: 35px;
+  width: 371px;
+  margin: 0;
+  font-family: "SF Pro Rounded", sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: center;
+  color: #1342b0;
+}
+
+/*MODAL DISCOUNT BUTTON*/
+
+.discount-button {
+  position: absolute;
+  bottom: 115px;
+  left: 50%;
+  width: 340px;
+  height: 70px;
+  border: none;
+  border-radius: 43px;
+  background-color: #d51570;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: translateX(-50%);
+  transition: transform 0.3s ease;
+}
+
+.discount-button:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/*MODAL RIGHT PANEL*/
+
+.modal-image {
+  width: 507px;
+  height: 580px;
+  flex-shrink: 0;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*ENTRANCE ANIMATIONS*/
 
 @keyframes slide-left {
   from {
@@ -265,11 +376,6 @@ nav a {
   }
 }
 
-
-.cans img {
-  animation: slide-up 1s ease-out;
-}
-
 @keyframes slide-up {
   from {
     transform: translateY(100vh);
@@ -280,18 +386,14 @@ nav a {
   }
 }
 
-.hero-buttons button {
-  transition: transform 0.3s ease;
-}
+/*STAR ANIMATION*/
 
-.hero-buttons button:hover {
-  transform: translateY(-5px);
-}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
 
-.find-button {
-  transition: transform 0.3s ease;
-}
-
-.find-button:hover {
-  transform: translateY(-5px);
+  to {
+    transform: rotate(360deg);
+  }
 }
